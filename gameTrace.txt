@@ -1,0 +1,16 @@
+Timeout: 5 seconds
+Max turns: 100
+Play mode: H-H
+Alpha-beta: False
+
+Initial board configuration:
+5   bK  bQ  bB  bN   .
+4    .   .  bp  bp   .
+3    .   .   .   .   .
+2    .  wp  wp   .   .
+1    .  wN  wB  wQ  wK
+
+     A   B   C   D   E
+
+
+White loses the game due to repeated rule violations.

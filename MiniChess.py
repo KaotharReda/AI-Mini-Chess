@@ -10,7 +10,9 @@ class MiniChess:
         self.timeout = timeout
         self.max_turns = max_turns
         self.play_mode = play_mode
-        self.output_filename = f"gameTrace-{str(alpha_beta).lower()}-{timeout}-{max_turns}.txt"
+        self.output_filename = f"gameTrace.txt"
+        self.warnings = {"white": 0, "black": 0}
+
 
     """
     Initialize the board
@@ -83,8 +85,75 @@ class MiniChess:
         # Return a list of all the valid moves.
         # Implement basic move validation
         # Check for out-of-bounds, correct turn, move legality, etc
-        return []
+        valid_moves = []
+        for s_row in range(5):
+            for s_col in range(5):
+                piece = game_state["board"][s_row][s_col]
+                if piece == '.' or piece[0] != game_state["turn"][0]:
+                    continue
 
+                # Generate valid moves for each piece
+                if piece[1] == 'K':  # King
+                    for dr in [-1, 0, 1]:
+                        for dc in [-1, 0, 1]:
+                            if dr == 0 and dc == 0:
+                                continue
+                            e_row, e_col = s_row + dr, s_col + dc
+                            if 0 <= e_row < 5 and 0 <= e_col < 5:
+                                target = game_state["board"][e_row][e_col]
+                                if target == '.' or target[0] != piece[0]:
+                                    valid_moves.append(((s_row, s_col), (e_row, e_col)))
+
+                elif piece[1] == 'Q':  # Queen
+                    directions = [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]
+                    for dr, dc in directions:
+                        e_row, e_col = s_row + dr, s_col + dc
+                        while 0 <= e_row < 5 and 0 <= e_col < 5:
+                            target = game_state["board"][e_row][e_col]
+                            if target == '.' or target[0] != piece[0]:
+                                valid_moves.append(((s_row, s_col), (e_row, e_col)))
+                            if target != '.':
+                                break
+                            e_row += dr
+                            e_col += dc
+
+                elif piece[1] == 'B':  # Bishop
+                    directions = [(-1, -1), (-1, 1), (1, -1), (1, 1)]
+                    for dr, dc in directions:
+                        e_row, e_col = s_row + dr, s_col + dc
+                        while 0 <= e_row < 5 and 0 <= e_col < 5:
+                            target = game_state["board"][e_row][e_col]
+                            if target == '.' or target[0] != piece[0]:
+                                valid_moves.append(((s_row, s_col), (e_row, e_col)))
+                            if target != '.':
+                                break
+                            e_row += dr
+                            e_col += dc
+
+                elif piece[1] == 'N':  # Knight
+                    moves = [(-2, -1), (-1, -2), (-2, 1), (-1, 2), (2, -1), (1, -2), (2, 1), (1, 2)]
+                    for dr, dc in moves:
+                        e_row, e_col = s_row + dr, s_col + dc
+                        if 0 <= e_row < 5 and 0 <= e_col < 5:
+                            target = game_state["board"][e_row][e_col]
+                            if target == '.' or target[0] != piece[0]:
+                                valid_moves.append(((s_row, s_col), (e_row, e_col)))
+
+                elif piece[1] == 'p':  # Pawn
+                    direction = 1 if piece[0] == 'w' else -1
+                    # Move forward
+                    e_row, e_col = s_row + direction, s_col
+                    if 0 <= e_row < 5 and game_state["board"][e_row][e_col] == '.':
+                        valid_moves.append(((s_row, s_col), (e_row, e_col)))
+                    # Capture diagonally
+                    for dc in [-1, 1]:
+                        e_row, e_col = s_row + direction, s_col + dc
+                        if 0 <= e_row < 5 and 0 <= e_col < 5:
+                            target = game_state["board"][e_row][e_col]
+                            if target != '.' and target[0] != piece[0]:
+                                valid_moves.append(((s_row, s_col), (e_row, e_col)))
+
+        return valid_moves
     """
     Modify to board to make a move
 
@@ -105,6 +174,12 @@ class MiniChess:
         game_state["turn"] = "black" if game_state["turn"] == "white" else "white"
         game_state["move_count"] += 1
         return game_state
+
+    def is_straight_move(self, s_row, s_col, e_row, e_col):
+        return s_row == e_row or s_col == e_col
+
+    def is_diagonal_move(self, s_row, s_col, e_row, e_col):
+        return abs(s_row - e_row) == abs(s_col - e_col)
 
     """
     Parse the input string and modify it into board coordinates
@@ -168,6 +243,24 @@ class MiniChess:
                     print("Invalid move. Try again.")
                     continue
 
+
+                valid_moves = self.valid_moves(self.current_game_state)
+                if move not in valid_moves:
+                    player = self.current_game_state["turn"]
+                    self.warnings[player] += 1
+                    if self.warnings[player] == 1:
+                        print(f"Invalid move! Warning: {player} has 1 warning. Next invalid move will result in a loss.")
+                    elif self.warnings[player] >= 2:
+                        print(f"Invalid move! {player} loses the game due to repeated rule violations.")
+                        f.write(f"\n{player.capitalize()} loses the game due to repeated rule violations.\n")
+                        print(f"\n{player.capitalize()} loses the game due to repeated rule violations.")
+                        break
+                    continue
+
+                # Reset warnings if the move is valid
+                player = self.current_game_state["turn"]
+                self.warnings[player] = 0
+
                 current_move_count = self.current_game_state["move_count"]
                 turn_number = (current_move_count // 2) + 1
                 start, end = move
@@ -184,7 +277,6 @@ class MiniChess:
                 f.write("New board configuration:\n")
                 f.write(self.board_to_string(self.current_game_state))
 
-                # Check for win
                 if self.is_king_captured(self.current_game_state):
                     winner = "black" if player == "white" else "white"
                     total_turns = (self.current_game_state["move_count"] // 2) + 1
