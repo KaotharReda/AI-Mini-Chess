@@ -140,7 +140,7 @@ class MiniChess:
                                 valid_moves.append(((s_row, s_col), (e_row, e_col)))
 
                 elif piece[1] == 'p':  # Pawn
-                    direction = 1 if piece[0] == 'w' else -1
+                    direction = -1 if piece[0] == 'w' else 1
                     # Move forward
                     e_row, e_col = s_row + direction, s_col
                     if 0 <= e_row < 5 and game_state["board"][e_row][e_col] == '.':
