@@ -232,6 +232,12 @@ class MiniChess:
 
             print("Welcome to Mini Chess! Enter moves as 'B2 B3'. Type 'exit' to quit.")
             while True:
+                # draw condition
+                if self.current_game_state["move_count"] >= self.max_turns:
+                    print("Maximum turns reached. Game is a draw!")
+                    f.write("\nMaximum turns reached. Game is a draw!\n")
+                    break
+
                 self.display_board(self.current_game_state)
                 move = input(f"{self.current_game_state['turn'].capitalize()} to move: ")
                 if move.lower() == 'exit':
@@ -263,6 +269,7 @@ class MiniChess:
 
                 current_move_count = self.current_game_state["move_count"]
                 turn_number = (current_move_count // 2) + 1
+                print(f"Turn #{turn_number}")
                 start, end = move
                 start_coord = self.convert_to_notation(start)
                 end_coord = self.convert_to_notation(end)
@@ -280,8 +287,8 @@ class MiniChess:
                 if self.is_king_captured(self.current_game_state):
                     winner = "black" if player == "white" else "white"
                     total_turns = (self.current_game_state["move_count"] // 2) + 1
-                    f.write(f"\n{winner.capitalize()} wins in {total_turns} turns!\n")
-                    print(f"\n{winner.capitalize()} wins in {total_turns} turns!")
+                    f.write(f"\n{winner.capitalize()} won in {total_turns} turns\n")
+                    print(f"\n{winner.capitalize()} won in {total_turns} turns")
                     break
 
 if __name__ == "__main__":
