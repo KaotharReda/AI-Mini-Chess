@@ -1,0 +1,2616 @@
+Timeout: 5 seconds
+Max turns: 200
+Play mode: AI-AI
+Alpha-beta: True
+
+Initial board configuration:
+5   bK  bQ  bB  bN   .
+4    .   .  bp  bp   .
+3    .   .   .   .   .
+2    .  wp  wp   .   .
+1    .  wN  wB  wQ  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 1
+Action: move from C2 to C3
+New board configuration:
+5   bK  bQ  bB  bN   .
+4    .   .  bp  bp   .
+3    .   .  wp   .   .
+2    .  wp   .   .   .
+1    .  wN  wB  wQ  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 1
+Action: move from D5 to C3
+New board configuration:
+5   bK  bQ  bB   .   .
+4    .   .  bp  bp   .
+3    .   .  bN   .   .
+2    .  wp   .   .   .
+1    .  wN  wB  wQ  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 2
+Action: move from D1 to D2
+New board configuration:
+5   bK  bQ  bB   .   .
+4    .   .  bp  bp   .
+3    .   .  bN   .   .
+2    .  wp   .  wQ   .
+1    .  wN  wB   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 2
+Action: move from A5 to A4
+New board configuration:
+5    .  bQ  bB   .   .
+4   bK   .  bp  bp   .
+3    .   .  bN   .   .
+2    .  wp   .  wQ   .
+1    .  wN  wB   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 3
+Action: move from D2 to C2
+New board configuration:
+5    .  bQ  bB   .   .
+4   bK   .  bp  bp   .
+3    .   .  bN   .   .
+2    .  wp  wQ   .   .
+1    .  wN  wB   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 3
+Action: move from B5 to B3
+New board configuration:
+5    .   .  bB   .   .
+4   bK   .  bp  bp   .
+3    .  bQ  bN   .   .
+2    .  wp  wQ   .   .
+1    .  wN  wB   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 4
+Action: move from B1 to C3
+New board configuration:
+5    .   .  bB   .   .
+4   bK   .  bp  bp   .
+3    .  bQ  wN   .   .
+2    .  wp  wQ   .   .
+1    .   .  wB   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 4
+Action: move from D4 to C3
+New board configuration:
+5    .   .  bB   .   .
+4   bK   .  bp   .   .
+3    .  bQ  bp   .   .
+2    .  wp  wQ   .   .
+1    .   .  wB   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 5
+Action: move from C2 to C3
+New board configuration:
+5    .   .  bB   .   .
+4   bK   .  bp   .   .
+3    .  bQ  wQ   .   .
+2    .  wp   .   .   .
+1    .   .  wB   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 5
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .   .
+4   bK  bB  bp   .   .
+3    .  bQ  wQ   .   .
+2    .  wp   .   .   .
+1    .   .  wB   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 6
+Action: move from C3 to B3
+New board configuration:
+5    .   .   .   .   .
+4   bK  bB  bp   .   .
+3    .  wQ   .   .   .
+2    .  wp   .   .   .
+1    .   .  wB   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 6
+Action: move from A4 to B3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .  bK   .   .   .
+2    .  wp   .   .   .
+1    .   .  wB   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 7
+Action: move from C1 to D2
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .  bK   .   .   .
+2    .  wp   .  wB   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 7
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .  bK   .   .   .
+2    .  wp   .  wB   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 8
+Action: move from D2 to C3
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .  bK  wB   .   .
+2    .  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 8
+Action: move from C5 to E3
+New board configuration:
+5    .   .   .   .   .
+4    .   .  bp   .   .
+3    .  bK  wB   .  bB
+2    .  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 9
+Action: move from C3 to E5
+New board configuration:
+5    .   .   .   .  wB
+4    .   .  bp   .   .
+3    .  bK   .   .  bB
+2    .  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 9
+Action: move from B3 to A2
+New board configuration:
+5    .   .   .   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .  bB
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 10
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .  bB
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 10
+Action: move from E3 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 11
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 11
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 12
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 12
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 13
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 13
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 14
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 14
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 15
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 15
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 16
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 16
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 17
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 17
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 18
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 18
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 19
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 19
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 20
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 20
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 21
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 21
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 22
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 22
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 23
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 23
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 24
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 24
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 25
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 25
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 26
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 26
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 27
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 27
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 28
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 28
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 29
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 29
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 30
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 30
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 31
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 31
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 32
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 32
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 33
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 33
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 34
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 34
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 35
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 35
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 36
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 36
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 37
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 37
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 38
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 38
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 39
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 39
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 40
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 40
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 41
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 41
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 42
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 42
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 43
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 43
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 44
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 44
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 45
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 45
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 46
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 46
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 47
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 47
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 48
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 48
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 49
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 49
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 50
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 50
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 51
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 51
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 52
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 52
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 53
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 53
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 54
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 54
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 55
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 55
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 56
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 56
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 57
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 57
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 58
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 58
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 59
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 59
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 60
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 60
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 61
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 61
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 62
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 62
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 63
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 63
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 64
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 64
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 65
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 65
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 66
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 66
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 67
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 67
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 68
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 68
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 69
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 69
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 70
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 70
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 71
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 71
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 72
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 72
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 73
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 73
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 74
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 74
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 75
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 75
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 76
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 76
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 77
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 77
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 78
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 78
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 79
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 79
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 80
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 80
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 81
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 81
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 82
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 82
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 83
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 83
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 84
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 84
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 85
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 85
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 86
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 86
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 87
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 87
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 88
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 88
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 89
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 89
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 90
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 90
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 91
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 91
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 92
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 92
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 93
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 93
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 94
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 94
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 95
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 95
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 96
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 96
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 97
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 97
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 98
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 98
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 99
+Action: move from C3 to E5
+New board configuration:
+5    .   .  bB   .  wB
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 99
+Action: move from C5 to B4
+New board configuration:
+5    .   .   .   .  wB
+4    .  bB  bp   .   .
+3    .   .   .   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 100
+Action: move from E5 to C3
+New board configuration:
+5    .   .   .   .   .
+4    .  bB  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 100
+Action: move from B4 to C5
+New board configuration:
+5    .   .  bB   .   .
+4    .   .  bp   .   .
+3    .   .  wB   .   .
+2   bK  wp   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Maximum turns reached. Game is a draw!

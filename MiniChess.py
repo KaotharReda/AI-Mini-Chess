@@ -2,6 +2,7 @@ import math
 import copy
 import time
 import argparse
+import os
 
 class MiniChess:
     def __init__(self, alpha_beta, timeout, max_turns, play_mode):
@@ -11,9 +12,11 @@ class MiniChess:
         self.max_turns = max_turns
         self.play_mode = play_mode
         self.output_filename = f"gameTrace-{alpha_beta}-{timeout}-{max_turns}.txt"
+        self.output_dir = "game_outputs"
         self.warnings = {"white": 0, "black": 0}
         self.piece_values = {'p': 1, 'N': 3, 'B': 3, 'Q': 9, 'K': 999} # Piece values for evaluation function e0
         self.cols = ['A', 'B', 'C', 'D', 'E'] # for displaying valid moves with correct notation
+        self.players = {play_mode[0]: "white",  play_mode[2]: "black"}
 
 
     """
@@ -334,94 +337,68 @@ class MiniChess:
         return best_score, best_move, self.convert_2_notation(best_move)
 
     """
-    Game loop
+    Method that plays a turn as an AI:
+    Args:
+        - file: output file for game. 
+    Returns:
+        - move: move being played by AI
+    """
+    def play_turn_AI(self, file):
+        _, move, _ = self.minimax(self.current_game_state, 3, time.time()) # make depth param modifiable later post testing
+        # check if move is valid, if not, AI loses
+        if not self.is_valid_move(self.current_game_state, move):
+            print("AI made an invalid move. AI loses.")
+            file.write("\nAI made an invalid move. AI loses.\n")
+            exit(1)
+        
+        return move
+    
+    """
+    Logic to play a turn as a human.
+    Args:
+        - file: output file for game.
+    Returns:
+        - move: move being played by human.
+    """
+    def play_turn_H(self, file):
+        player = self.current_game_state["turn"]
+        while(self.warnings[player] < 2):
+            move = input(f"{self.current_game_state['turn'].capitalize()} to move: ")
+            if move.lower() == 'exit':
+                print("Game exited.")
+                exit(1)
 
+            move = self.parse_input(move)
+
+            if not move or not self.is_valid_move:
+                self.warnings[player] += 1
+                print(f"Invalid move! Warning: {player} has 1 warning. Next invalid move will result in a loss.")
+                continue
+
+            # If we reach here move is valid and we reset warnings
+            player = self.current_game_state["turn"]
+            self.warnings[player] = 0
+            return move
+        
+        # if we reach here, player has made 2 invalid moves and loses
+        print(f"Invalid move! {player} loses the game due to repeated rule violations.")
+        file.write(f"\n{player.capitalize()} loses the game due to repeated rule violations.\n")
+        exit(1)
+
+
+    """
+    Game loop     
     Args:
         - None
     Returns:
         - None
     """
     def play(self):
-        with open(self.output_filename, 'w') as f:
-            # Write game parameters
-            f.write(f"Timeout: {self.timeout} seconds\n")
-            f.write(f"Max turns: {self.max_turns}\n")
-            f.write(f"Play mode: {self.play_mode}\n")
-            f.write(f"Alpha-beta: {self.alpha_beta}\n\n")
-            f.write("Initial board configuration:\n")
-            f.write(self.board_to_string(self.current_game_state))
 
+        # Ensure output dir exists and create full output file name
+        os.makedirs(self.output_dir, exist_ok=True)
+        self.output_filename = os.path.join(self.output_dir, self.output_filename)
 
-            print("Welcome to Mini Chess! Enter moves as 'B2 B3'. Type 'exit' to quit.")
-            while True:
-                # draw condition
-                if self.current_game_state["move_count"] >= self.max_turns:
-                    print("Maximum turns reached. Game is a draw!")
-                    f.write("\nMaximum turns reached. Game is a draw!\n")
-                    break
-
-                self.display_board()
-                move = input(f"{self.current_game_state['turn'].capitalize()} to move: ")
-                if move.lower() == 'exit':
-                    print("Game exited.")
-                    exit(1)
-
-                move = self.parse_input(move)
-                if not move or not self.is_valid_move(self.current_game_state, move):
-                    print("Invalid move. Try again.")
-                    continue
-
-
-                valid_moves, _ = self.valid_moves(self.current_game_state)
-                if move not in valid_moves:
-                    player = self.current_game_state["turn"]
-                    self.warnings[player] += 1
-                    if self.warnings[player] == 1:
-                        print(f"Invalid move! Warning: {player} has 1 warning. Next invalid move will result in a loss.")
-                    elif self.warnings[player] >= 2:
-                        print(f"Invalid move! {player} loses the game due to repeated rule violations.")
-                        f.write(f"\n{player.capitalize()} loses the game due to repeated rule violations.\n")
-                        print(f"\n{player.capitalize()} loses the game due to repeated rule violations.")
-                        break
-                    continue
-
-                # Reset warnings if the move is valid
-                player = self.current_game_state["turn"]
-                self.warnings[player] = 0
-
-                current_move_count = self.current_game_state["move_count"]
-                turn_number = (current_move_count // 2) + 1
-                print(f"Turn #{turn_number}")
-                start, end = move
-                start_coord = self.convert_to_notation(start)
-                end_coord = self.convert_to_notation(end)
-                player = self.current_game_state['turn']
-
-                f.write(f"\nPlayer: {player}\n")
-                f.write(f"Turn #: {turn_number}\n")
-                f.write(f"Action: move from {start_coord} to {end_coord}\n")
-
-                self.make_move(self.current_game_state, move)
-
-                f.write("New board configuration:\n")
-                f.write(self.board_to_string(self.current_game_state))
-
-                if self.is_king_captured(self.current_game_state):
-                    winner = "black" if player == "white" else "white"
-                    total_turns = (self.current_game_state["move_count"] // 2) + 1
-                    f.write(f"\n{winner.capitalize()} won in {total_turns} turns\n")
-                    print(f"\n{winner.capitalize()} won in {total_turns} turns")
-                    break
-
-    """
-    Game loop for Human v. AI
-
-    Args:
-        - None
-    Returns:
-        - None
-    """
-    def play_HvAI(self):
         with open(self.output_filename, 'w') as f:
             # Write game parameters
             f.write(f"Timeout: {self.timeout} seconds\n")
@@ -431,7 +408,12 @@ class MiniChess:
             f.write("Initial board configuration:\n")
             f.write(self.board_to_string())
 
+            # Set players
+            mode = self.play_mode.split('-')
+            white = mode[0]
+            black = mode[1]
 
+            print(white, black)
             print("Welcome to Mini Chess! Enter moves as 'B2 B3'. Type 'exit' to quit.")
             while True:
                 # draw condition
@@ -440,44 +422,25 @@ class MiniChess:
                     f.write("\nMaximum turns reached. Game is a draw!\n")
                     break
 
-                if self.current_game_state["turn"] == "black": # AI's turn
-                    self.display_board()
-                    _, move, _ = self.minimax(self.current_game_state, 2, time.time())
+                self.display_board()
 
-                    # check if move is valid, if not, AI loses
-                    if not self.is_valid_move(self.current_game_state, move):
-                        print("AI made an invalid move. AI loses.")
-                        f.write("\nAI made an invalid move. AI loses.\n")
-                        break
-                
+                # Check who's move it is and play accordingly:
+                if self.current_game_state["turn"] == "white":
+                    if white == 'H':
+                        move = self.play_turn_H(f)
+                    else:
+                        move = self.play_turn_AI(f)
                 else:
-                    self.display_board()
-                    move = input(f"{self.current_game_state['turn'].capitalize()} to move: ")
-                    if move.lower() == 'exit':
-                        print("Game exited.")
-                        exit(1)
-
-                    move = self.parse_input(move)
-
-                if not move or not self.is_valid_move:
-                    player = self.current_game_state["turn"]
-                    self.warnings[player] += 1
-                    if self.warnings[player] == 1:
-                        print(f"Invalid move! Warning: {player} has 1 warning. Next invalid move will result in a loss.")
-                    elif self.warnings[player] >= 2:
-                        print(f"Invalid move! {player} loses the game due to repeated rule violations.")
-                        f.write(f"\n{player.capitalize()} loses the game due to repeated rule violations.\n")
-                        print(f"\n{player.capitalize()} loses the game due to repeated rule violations.")
-                        break
-                    continue
-
-                # Reset warnings if the move is valid
-                player = self.current_game_state["turn"]
-                self.warnings[player] = 0
-
+                    if black == 'H':
+                        move = self.play_turn_H(f)
+                    else:
+                        move = self.play_turn_AI(f)
+                
+                # update move count and turn number
                 current_move_count = self.current_game_state["move_count"]
                 turn_number = (current_move_count // 2) + 1
                 print(f"Turn #{turn_number}")
+
                 start, end = move
                 start_coord = self.convert_to_notation(start)
                 end_coord = self.convert_to_notation(end)
@@ -508,16 +471,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     game = MiniChess(args.alpha_beta, args.timeout, args.max_turns, args.play_mode)
-    game.play_HvAI()
-
-    # Testing:
-    # game = MiniChess(False, 10, 100, 'H-H')
-    # game.display_board()
-    # print('-' * 50)
-
-    # moves, notation = game.valid_moves(game.current_game_state)
-    # for move in moves:
-    #     print(f'${move} |  ${notation[moves.index(move)]}')
-    # print('-' * 50)
-
-    # best_score, best_move, best_move_notation = game.minimax(game.current_game_state, 2, time.time())    
+    game.play()  
