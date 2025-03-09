@@ -10,8 +10,10 @@ class MiniChess:
         self.timeout = timeout
         self.max_turns = max_turns
         self.play_mode = play_mode
-        self.output_filename = f"gameTrace.txt"
+        self.output_filename = f"gameTrace-{alpha_beta}-{timeout}-{max_turns}.txt"
         self.warnings = {"white": 0, "black": 0}
+        self.piece_values = {'p': 1, 'N': 3, 'B': 3, 'Q': 9, 'K': 999} # Piece values for evaluation function e0
+        self.cols = ['A', 'B', 'C', 'D', 'E'] # for displaying valid moves with correct notation
 
 
     """
@@ -33,17 +35,30 @@ class MiniChess:
                 "turn": 'white',
                 "move_count": 0
         }
+#         state = {
+#     "board": [
+#         ['bK', '.', '.', '.', 'bQ'],
+#         ['.', 'bB', 'bp', 'bp', '.'],
+#         ['.', '.', '.', '.', '.'],
+#         ['.', 'wp', 'wp', 'wB', '.'],
+#         ['wK', '.', '.', '.', 'wQ']
+#     ],
+#     "turn": 'white',
+#     "move_count": 0
+# }
         return state
 
     """
     Prints the board
     
     Args:
-        - game_state: Dictionary representing the current game state
+        - None
     Returns:
         - None
     """
-    def display_board(self, game_state):
+    def display_board(self, game_state=None):
+        if not game_state:
+            game_state = self.current_game_state
         print()
         for i, row in enumerate(game_state["board"], start=1):
             print(str(6-i) + "  " + ' '.join(piece.rjust(3) for piece in row))
@@ -52,13 +67,32 @@ class MiniChess:
         print()
 
 
-    def board_to_string(self, game_state):
+    def board_to_string(self):
         board_str = ""
-        for i, row in enumerate(game_state["board"], start=1):
+        for i, row in enumerate(self.current_game_state["board"], start=1):
             board_str += str(6 - i) + "  " + ' '.join(piece.rjust(3) for piece in row) + "\n"
         board_str += "\n     A   B   C   D   E\n\n"
         return board_str
-
+    
+    """
+    Evaluates the game state using heuristic function and returns the score (e0 implemented currently)    
+    
+    Args: 
+        - game_state:   dictionary | Dictionary representing the current game state
+    Returns:
+        - integer value representing the score of the game state
+    """
+    def heuristic_eval(self, game_state):
+        white_score, black_score = 0, 0
+        for row in game_state["board"]:
+            for piece in row:
+                if piece == '.': # Zero value
+                    continue
+                if piece[0] == 'w':
+                    white_score += self.piece_values[piece[1]] # Strip color, add value from piece_values dict
+                else:
+                    black_score += self.piece_values[piece[1]]
+        return white_score - black_score
 
     """
     Check if the move is valid    
@@ -71,7 +105,11 @@ class MiniChess:
     """
     def is_valid_move(self, game_state, move):
         # Check if move is in list of valid moves
-        return True
+
+        valid_moves, _ = self.valid_moves(game_state) # Get all valid moves
+        if move in valid_moves:
+            return True
+        return False
 
     """
     Returns a list of valid moves
@@ -86,11 +124,19 @@ class MiniChess:
         # Implement basic move validation
         # Check for out-of-bounds, correct turn, move legality, etc
         valid_moves = []
+        correct_notation_moves = [] # List of valid moves in correct notation for visual purposes
         for s_row in range(5):
             for s_col in range(5):
                 piece = game_state["board"][s_row][s_col]
                 if piece == '.' or piece[0] != game_state["turn"][0]:
                     continue
+
+                start = f"{self.cols[s_col]}{5 - s_row}"  # Convert start to correct notation
+
+                def add_move(e_row, e_col):
+                    """ Helper function to add a move in the correct format """
+                    end = f"{self.cols[e_col]}{5 - e_row}"
+                    correct_notation_moves.append((start, end))
 
                 # Generate valid moves for each piece
                 if piece[1] == 'K':  # King
@@ -102,7 +148,8 @@ class MiniChess:
                             if 0 <= e_row < 5 and 0 <= e_col < 5:
                                 target = game_state["board"][e_row][e_col]
                                 if target == '.' or target[0] != piece[0]:
-                                    valid_moves.append(((s_row, s_col), (e_row, e_col)))
+                                    valid_moves.append(((s_row, s_col), (e_row, e_col))) # format ((start_row, start_col),(end_row, end_col))
+                                    add_move(e_row, e_col)
 
                 elif piece[1] == 'Q':  # Queen
                     directions = [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]
@@ -112,6 +159,7 @@ class MiniChess:
                             target = game_state["board"][e_row][e_col]
                             if target == '.' or target[0] != piece[0]:
                                 valid_moves.append(((s_row, s_col), (e_row, e_col)))
+                                add_move(e_row, e_col)
                             if target != '.':
                                 break
                             e_row += dr
@@ -125,6 +173,7 @@ class MiniChess:
                             target = game_state["board"][e_row][e_col]
                             if target == '.' or target[0] != piece[0]:
                                 valid_moves.append(((s_row, s_col), (e_row, e_col)))
+                                add_move(e_row, e_col)
                             if target != '.':
                                 break
                             e_row += dr
@@ -138,6 +187,7 @@ class MiniChess:
                             target = game_state["board"][e_row][e_col]
                             if target == '.' or target[0] != piece[0]:
                                 valid_moves.append(((s_row, s_col), (e_row, e_col)))
+                                add_move(e_row, e_col)
 
                 elif piece[1] == 'p':  # Pawn
                     direction = -1 if piece[0] == 'w' else 1
@@ -145,6 +195,7 @@ class MiniChess:
                     e_row, e_col = s_row + direction, s_col
                     if 0 <= e_row < 5 and game_state["board"][e_row][e_col] == '.':
                         valid_moves.append(((s_row, s_col), (e_row, e_col)))
+                        add_move(e_row, e_col)
                     # Capture diagonally
                     for dc in [-1, 1]:
                         e_row, e_col = s_row + direction, s_col + dc
@@ -152,8 +203,11 @@ class MiniChess:
                             target = game_state["board"][e_row][e_col]
                             if target != '.' and target[0] != piece[0]:
                                 valid_moves.append(((s_row, s_col), (e_row, e_col)))
+                                add_move(e_row, e_col)
 
-        return valid_moves
+        return valid_moves, correct_notation_moves
+
+
     """
     Modify to board to make a move
 
@@ -164,10 +218,7 @@ class MiniChess:
         - game_state:   dictionary | Dictionary representing the modified game state
     """
     def make_move(self, game_state, move):
-        start = move[0]
-        end = move[1]
-        start_row, start_col = start
-        end_row, end_col = end
+        ((start_row, start_col), (end_row, end_col)) = move
         piece = game_state["board"][start_row][start_col]
         game_state["board"][start_row][start_col] = '.'
         game_state["board"][end_row][end_col] = piece
@@ -201,6 +252,12 @@ class MiniChess:
     def convert_to_notation(self, pos):
         row, col = pos
         return f"{chr(col + ord('A'))}{5 - row}"
+    
+    def convert_2_notation(self, move):
+       ((s_row, s_col), (e_row, e_col)) = move
+       start = f"{self.cols[s_col]}{5 - s_row}"  # Convert start to correct notation
+       end = f"{self.cols[e_col]}{5 - e_row}"
+       return (start, end)
 
     def is_king_captured(self, game_state):
         current_turn = game_state["turn"]
@@ -210,6 +267,71 @@ class MiniChess:
             if king in row:
                 return False
         return True
+    
+
+    """
+    Minimax algorithm to find the best move.
+    
+    Args:
+        - game_state: dictionary | Current game state
+        - depth: int | Depth to search in the game tree
+        - maximizing_player: bool | True if maximizing, False if minimizing
+        - alpha_beta: bool | Enable alpha-beta pruning
+        - alpha: float | Alpha value for pruning (only if alpha-beta is enabled)
+        - beta: float | Beta value for pruning (only if alpha-beta is enabled)
+    
+    Returns:
+        - best_score: int | Evaluation score of the best move
+        - best_move: tuple | The best move in ((start_row, start_col), (end_row, end_col)) format
+    """
+    def minimax(self, game_state, depth, start_time, alpha_beta=False, alpha=float('-inf'), beta=float('inf')):
+        
+        # Check if timeout has been reached
+        if time.time() - start_time >= self.timeout:
+            return self.heuristic_eval(game_state), None, None
+        
+        # Check if we reached the maximum depth
+        if depth == 0:
+            return self.heuristic_eval(game_state), None, None
+        
+        # Generate all valid moves for the current game state
+        valid_moves, _ = self.valid_moves(game_state)
+
+        # No more valid moves, we reached a stalemate
+        if not valid_moves:
+            return self.heuristic_eval(game_state), None , None  
+
+        best_move = None
+        is_maximizing = game_state["turn"] == "white"
+
+        
+        # white's turn
+        if is_maximizing:
+            best_score = float('-inf') # set root node to initial alpha
+            for move in valid_moves: # Evaluate all possible moves
+                new_state = self.make_move(copy.deepcopy(game_state), move)
+                score, _ , _= self.minimax(new_state, depth-1, time.time(), alpha_beta, alpha, beta) # Recursively evaluate the new state
+                if score > best_score: # store max score
+                    best_score = score
+                    best_move = move
+                if alpha_beta:
+                    alpha = max(alpha, best_score)
+                    if beta <= alpha:
+                        break  # Prune branches
+        else:  # black's turn
+            best_score = float('inf') # set root node to initial beta (minimizer)
+            for move in valid_moves:
+                new_state = self.make_move(copy.deepcopy(game_state), move)
+                score, _ , _ = self.minimax(new_state, depth-1, time.time(), alpha_beta, alpha, beta)
+                if score < best_score: # store min score
+                    best_score = score
+                    best_move = move
+                if alpha_beta:
+                    beta = min(beta, best_score)
+                    if beta <= alpha:
+                        break  # Prune branches
+
+        return best_score, best_move, self.convert_2_notation(best_move)
 
     """
     Game loop
@@ -238,7 +360,7 @@ class MiniChess:
                     f.write("\nMaximum turns reached. Game is a draw!\n")
                     break
 
-                self.display_board(self.current_game_state)
+                self.display_board()
                 move = input(f"{self.current_game_state['turn'].capitalize()} to move: ")
                 if move.lower() == 'exit':
                     print("Game exited.")
@@ -250,7 +372,7 @@ class MiniChess:
                     continue
 
 
-                valid_moves = self.valid_moves(self.current_game_state)
+                valid_moves, _ = self.valid_moves(self.current_game_state)
                 if move not in valid_moves:
                     player = self.current_game_state["turn"]
                     self.warnings[player] += 1
@@ -291,13 +413,111 @@ class MiniChess:
                     print(f"\n{winner.capitalize()} won in {total_turns} turns")
                     break
 
+    """
+    Game loop for Human v. AI
+
+    Args:
+        - None
+    Returns:
+        - None
+    """
+    def play_HvAI(self):
+        with open(self.output_filename, 'w') as f:
+            # Write game parameters
+            f.write(f"Timeout: {self.timeout} seconds\n")
+            f.write(f"Max turns: {self.max_turns}\n")
+            f.write(f"Play mode: {self.play_mode}\n")
+            f.write(f"Alpha-beta: {self.alpha_beta}\n\n")
+            f.write("Initial board configuration:\n")
+            f.write(self.board_to_string())
+
+
+            print("Welcome to Mini Chess! Enter moves as 'B2 B3'. Type 'exit' to quit.")
+            while True:
+                # draw condition
+                if self.current_game_state["move_count"] >= self.max_turns:
+                    print("Maximum turns reached. Game is a draw!")
+                    f.write("\nMaximum turns reached. Game is a draw!\n")
+                    break
+
+                if self.current_game_state["turn"] == "black": # AI's turn
+                    self.display_board()
+                    _, move, _ = self.minimax(self.current_game_state, 2, time.time())
+
+                    # check if move is valid, if not, AI loses
+                    if not self.is_valid_move(self.current_game_state, move):
+                        print("AI made an invalid move. AI loses.")
+                        f.write("\nAI made an invalid move. AI loses.\n")
+                        break
+                
+                else:
+                    self.display_board()
+                    move = input(f"{self.current_game_state['turn'].capitalize()} to move: ")
+                    if move.lower() == 'exit':
+                        print("Game exited.")
+                        exit(1)
+
+                    move = self.parse_input(move)
+
+                if not move or not self.is_valid_move:
+                    player = self.current_game_state["turn"]
+                    self.warnings[player] += 1
+                    if self.warnings[player] == 1:
+                        print(f"Invalid move! Warning: {player} has 1 warning. Next invalid move will result in a loss.")
+                    elif self.warnings[player] >= 2:
+                        print(f"Invalid move! {player} loses the game due to repeated rule violations.")
+                        f.write(f"\n{player.capitalize()} loses the game due to repeated rule violations.\n")
+                        print(f"\n{player.capitalize()} loses the game due to repeated rule violations.")
+                        break
+                    continue
+
+                # Reset warnings if the move is valid
+                player = self.current_game_state["turn"]
+                self.warnings[player] = 0
+
+                current_move_count = self.current_game_state["move_count"]
+                turn_number = (current_move_count // 2) + 1
+                print(f"Turn #{turn_number}")
+                start, end = move
+                start_coord = self.convert_to_notation(start)
+                end_coord = self.convert_to_notation(end)
+                player = self.current_game_state['turn']
+
+                f.write(f"\nPlayer: {player}\n")
+                f.write(f"Turn #: {turn_number}\n")
+                f.write(f"Action: move from {start_coord} to {end_coord}\n")
+
+                self.make_move(self.current_game_state, move)
+
+                f.write("New board configuration:\n")
+                f.write(self.board_to_string())
+
+                if self.is_king_captured(self.current_game_state):
+                    winner = "black" if player == "white" else "white"
+                    total_turns = (self.current_game_state["move_count"] // 2) + 1
+                    f.write(f"\n{winner.capitalize()} won in {total_turns} turns\n")
+                    print(f"\n{winner.capitalize()} won in {total_turns} turns")
+                    break
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Mini Chess Game')
     parser.add_argument('--alpha_beta', type=bool, default=False, help='Enable alpha-beta pruning (True/False)')
-    parser.add_argument('--timeout', type=int, default=5, help='Timeout per move (seconds)')
+    parser.add_argument('--timeout', type=int, default=10, help='Timeout per move (seconds)')
     parser.add_argument('--max_turns', type=int, default=100, help='Maximum number of turns')
     parser.add_argument('--play_mode', type=str, default='H-H', help='Play mode (H-H, H-AI, AI-H, AI-AI)')
     args = parser.parse_args()
 
     game = MiniChess(args.alpha_beta, args.timeout, args.max_turns, args.play_mode)
-    game.play()
+    game.play_HvAI()
+
+    # Testing:
+    # game = MiniChess(False, 10, 100, 'H-H')
+    # game.display_board()
+    # print('-' * 50)
+
+    # moves, notation = game.valid_moves(game.current_game_state)
+    # for move in moves:
+    #     print(f'${move} |  ${notation[moves.index(move)]}')
+    # print('-' * 50)
+
+    # best_score, best_move, best_move_notation = game.minimax(game.current_game_state, 2, time.time())    
