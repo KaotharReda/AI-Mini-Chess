@@ -1,6 +1,5 @@
-import time
 
-# Piece-Square Tables for a 5x5 Chess Game
+# Represent piece-position scores 
 PIECE_SQUARE_TABLES = {
     'p': [  
         [0,  5,  5,  5,  0],
