@@ -3,6 +3,7 @@ import copy
 import time
 import argparse
 import os
+from tracemalloc import start
 
 class MiniChess:
     def __init__(self, alpha_beta, timeout, max_turns, play_mode):
@@ -14,7 +15,6 @@ class MiniChess:
         self.output_filename = f"gameTrace-{alpha_beta}-{timeout}-{max_turns}.txt"
         self.output_dir = "game_outputs"
         self.warnings = {"white": 0, "black": 0}
-        self.piece_values = {'p': 1, 'N': 3, 'B': 3, 'Q': 9, 'K': 999} # Piece values for evaluation function e0
         self.cols = ['A', 'B', 'C', 'D', 'E'] # for displaying valid moves with correct notation
         self.players = {play_mode[0]: "white",  play_mode[2]: "black"}
 
@@ -38,17 +38,6 @@ class MiniChess:
                 "turn": 'white',
                 "move_count": 0
         }
-#         state = {
-#     "board": [
-#         ['bK', '.', '.', '.', 'bQ'],
-#         ['.', 'bB', 'bp', 'bp', '.'],
-#         ['.', '.', '.', '.', '.'],
-#         ['.', 'wp', 'wp', 'wB', '.'],
-#         ['wK', '.', '.', '.', 'wQ']
-#     ],
-#     "turn": 'white',
-#     "move_count": 0
-# }
         return state
 
     """
@@ -86,16 +75,18 @@ class MiniChess:
         - integer value representing the score of the game state
     """
     def heuristic_eval(self, game_state):
+        piece_values = {'p': 1, 'N': 3, 'B': 3, 'Q': 9, 'K': 999} # Piece values for evaluation function e0
         white_score, black_score = 0, 0
         for row in game_state["board"]:
             for piece in row:
                 if piece == '.': # Zero value
                     continue
                 if piece[0] == 'w':
-                    white_score += self.piece_values[piece[1]] # Strip color, add value from piece_values dict
+                    white_score += piece_values[piece[1]] # Strip color, add value from piece_values dict
                 else:
-                    black_score += self.piece_values[piece[1]]
+                    black_score += piece_values[piece[1]]
         return white_score - black_score
+           
 
     """
     Check if the move is valid    
@@ -313,26 +304,26 @@ class MiniChess:
             best_score = float('-inf') # set root node to initial alpha
             for move in valid_moves: # Evaluate all possible moves
                 new_state = self.make_move(copy.deepcopy(game_state), move)
-                score, _ , _= self.minimax(new_state, depth-1, time.time(), alpha_beta, alpha, beta) # Recursively evaluate the new state
+                score, _ , _= self.minimax(new_state, depth-1, start_time, alpha_beta, alpha, beta) # Recursively evaluate the new state
                 if score > best_score: # store max score
                     best_score = score
                     best_move = move
                 if alpha_beta:
                     alpha = max(alpha, best_score)
-                    if beta <= alpha:
-                        break  # Prune branches
+                    if beta <= alpha: # we know that the remaining branches do not need to be explored since the maximizer will not choose this branch
+                        break  # we can safely prune
         else:  # black's turn
             best_score = float('inf') # set root node to initial beta (minimizer)
             for move in valid_moves:
                 new_state = self.make_move(copy.deepcopy(game_state), move)
-                score, _ , _ = self.minimax(new_state, depth-1, time.time(), alpha_beta, alpha, beta)
+                score, _ , _ = self.minimax(new_state, depth-1, start_time, alpha_beta, alpha, beta)
                 if score < best_score: # store min score
                     best_score = score
                     best_move = move
                 if alpha_beta:
                     beta = min(beta, best_score)
-                    if beta <= alpha:
-                        break  # Prune branches
+                    if beta <= alpha: # similarly with the minimizer, it will not explore branches with a higher result
+                        break  
 
         return best_score, best_move, self.convert_2_notation(best_move)
 
@@ -343,8 +334,8 @@ class MiniChess:
     Returns:
         - move: move being played by AI
     """
-    def play_turn_AI(self, file):
-        _, move, _ = self.minimax(self.current_game_state, 3, time.time()) # make depth param modifiable later post testing
+    def play_turn_AI(self, file, depth):
+        _, move, _ = self.minimax(self.current_game_state, depth, time.time(), alpha_beta=self.alpha_beta)
         # check if move is valid, if not, AI loses
         if not self.is_valid_move(self.current_game_state, move):
             print("AI made an invalid move. AI loses.")
@@ -413,7 +404,6 @@ class MiniChess:
             white = mode[0]
             black = mode[1]
 
-            print(white, black)
             print("Welcome to Mini Chess! Enter moves as 'B2 B3'. Type 'exit' to quit.")
             while True:
                 # draw condition
@@ -429,12 +419,12 @@ class MiniChess:
                     if white == 'H':
                         move = self.play_turn_H(f)
                     else:
-                        move = self.play_turn_AI(f)
+                        move = self.play_turn_AI(f, 100)
                 else:
                     if black == 'H':
                         move = self.play_turn_H(f)
                     else:
-                        move = self.play_turn_AI(f)
+                        move = self.play_turn_AI(f, 100)
                 
                 # update move count and turn number
                 current_move_count = self.current_game_state["move_count"]
@@ -464,10 +454,10 @@ class MiniChess:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Mini Chess Game')
-    parser.add_argument('--alpha_beta', type=bool, default=False, help='Enable alpha-beta pruning (True/False)')
-    parser.add_argument('--timeout', type=int, default=10, help='Timeout per move (seconds)')
+    parser.add_argument('--alpha-beta', type=bool, default=False, help='Enable alpha-beta pruning (True/False)')
+    parser.add_argument('--timeout', type=float, default=2, help='Timeout per move (seconds)')
     parser.add_argument('--max_turns', type=int, default=100, help='Maximum number of turns')
-    parser.add_argument('--play_mode', type=str, default='H-H', help='Play mode (H-H, H-AI, AI-H, AI-AI)')
+    parser.add_argument('--play-mode', type=str, default='H-H', help='Play mode (H-H, H-AI, AI-H, AI-AI)')
     args = parser.parse_args()
 
     game = MiniChess(args.alpha_beta, args.timeout, args.max_turns, args.play_mode)
