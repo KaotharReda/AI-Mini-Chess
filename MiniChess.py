@@ -1,12 +1,11 @@
-import math
 import copy
 import time
 import argparse
 import os
-from tracemalloc import start
+from heuristics import heuristic_e0, heuristic_e1
 
 class MiniChess:
-    def __init__(self, alpha_beta, timeout, max_turns, play_mode):
+    def __init__(self, alpha_beta, timeout, max_turns, play_mode, heuristic):
         self.current_game_state = self.init_board()
         self.alpha_beta = alpha_beta
         self.timeout = timeout
@@ -17,7 +16,7 @@ class MiniChess:
         self.warnings = {"white": 0, "black": 0}
         self.cols = ['A', 'B', 'C', 'D', 'E'] # for displaying valid moves with correct notation
         self.players = {play_mode[0]: "white",  play_mode[2]: "black"}
-
+        self.heuristic = heuristic
 
     """
     Initialize the board
@@ -64,29 +63,7 @@ class MiniChess:
         for i, row in enumerate(self.current_game_state["board"], start=1):
             board_str += str(6 - i) + "  " + ' '.join(piece.rjust(3) for piece in row) + "\n"
         board_str += "\n     A   B   C   D   E\n\n"
-        return board_str
-    
-    """
-    Evaluates the game state using heuristic function and returns the score (e0 implemented currently)    
-    
-    Args: 
-        - game_state:   dictionary | Dictionary representing the current game state
-    Returns:
-        - integer value representing the score of the game state
-    """
-    def heuristic_eval(self, game_state):
-        piece_values = {'p': 1, 'N': 3, 'B': 3, 'Q': 9, 'K': 999} # Piece values for evaluation function e0
-        white_score, black_score = 0, 0
-        for row in game_state["board"]:
-            for piece in row:
-                if piece == '.': # Zero value
-                    continue
-                if piece[0] == 'w':
-                    white_score += piece_values[piece[1]] # Strip color, add value from piece_values dict
-                else:
-                    black_score += piece_values[piece[1]]
-        return white_score - black_score
-           
+        return board_str       
 
     """
     Check if the move is valid    
@@ -282,18 +259,18 @@ class MiniChess:
         
         # Check if timeout has been reached
         if time.time() - start_time >= self.timeout:
-            return self.heuristic_eval(game_state), None, None
+            return self.heuristic(game_state), None, None
         
         # Check if we reached the maximum depth
         if depth == 0:
-            return self.heuristic_eval(game_state), None, None
+            return self.heuristic(game_state), None, None
         
         # Generate all valid moves for the current game state
         valid_moves, _ = self.valid_moves(game_state)
 
         # No more valid moves, we reached a stalemate
         if not valid_moves:
-            return self.heuristic_eval(game_state), None , None  
+            return self.heuristic(game_state), None , None  
 
         best_move = None
         is_maximizing = game_state["turn"] == "white"
@@ -458,7 +435,17 @@ if __name__ == "__main__":
     parser.add_argument('--timeout', type=float, default=2, help='Timeout per move (seconds)')
     parser.add_argument('--max_turns', type=int, default=100, help='Maximum number of turns')
     parser.add_argument('--play-mode', type=str, default='H-H', help='Play mode (H-H, H-AI, AI-H, AI-AI)')
+    parser.add_argument('--heuristic', type=str, default='e0', help='e0, e1 or e2')
     args = parser.parse_args()
 
-    game = MiniChess(args.alpha_beta, args.timeout, args.max_turns, args.play_mode)
+    # Set heuristic function
+    heuristic = None
+    if args.heuristic == 'e0':
+        heuristic = heuristic_e0
+    elif args.heuristic == 'e1':
+        heuristic = heuristic_e1
+    else:
+        print("e2 not available yet.")
+
+    game = MiniChess(args.alpha_beta, args.timeout, args.max_turns, args.play_mode, heuristic)
     game.play()  
