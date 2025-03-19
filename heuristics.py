@@ -152,3 +152,59 @@ test_state = {
             "turn": 'white',
             "move_count": 0
     }
+
+"""
+    Evaluate the game state by combining material balance with a mobility bonus.
+    Material score uses the following values:
+        Pawn: 1, Knight: 3, Bishop: 3, Queen: 9, King: 999.
+    Mobility is defined as the difference in the number of legal moves available to white and black.
+    A small weight (0.1) is applied to the mobility difference.
+    A positive final score favors white; a negative score favors black.
+    
+    Args:
+        game_state: The game state to evaluate.
+
+    Returns:
+        The heuristic value of the game state.
+"""
+
+def heuristic_e2(game_state):
+    # Material balance as in e0.
+    piece_values = {'p': 1, 'N': 3, 'B': 3, 'Q': 9, 'K': 999}
+    white_material = 0
+    black_material = 0
+    for row in game_state["board"]:
+        for piece in row:
+            if piece == '.':
+                continue
+            if piece[0] == 'w':
+                white_material += piece_values[piece[1]]
+            else:
+                black_material += piece_values[piece[1]]
+    material_score = white_material - black_material
+
+    # Mobility: difference in legal moves for white and black.
+    original_turn = game_state["turn"]
+
+    # Helper: create a temporary instance of MiniChess to access valid_moves.
+    def get_valid_moves(state):
+        from MiniChess import MiniChess  # Ensure the class is imported from its module.
+        temp_game = MiniChess(alpha_beta=False, timeout=5, max_turns=100, play_mode="H-H", heuristic=None)
+        moves, _ = temp_game.valid_moves(state)
+        return moves
+
+    # Count white moves.
+    game_state["turn"] = "white"
+    white_moves = get_valid_moves(game_state)
+    white_mobility = len(white_moves)
+
+    # Count black moves.
+    game_state["turn"] = "black"
+    black_moves = get_valid_moves(game_state)
+    black_mobility = len(black_moves)
+
+    game_state["turn"] = original_turn  # Restore
+
+    mobility_score = white_mobility - black_mobility
+
+    return material_score + 0.1 * mobility_score

@@ -2,7 +2,7 @@ import copy
 import time
 import argparse
 import os
-from heuristics import heuristic_e0, heuristic_e1
+from heuristics import heuristic_e0, heuristic_e1, heuristic_e2
 
 class MiniChess:
     def __init__(self, alpha_beta, timeout, max_turns, play_mode, heuristic):
@@ -338,7 +338,7 @@ class MiniChess:
 
             move = self.parse_input(move)
 
-            if not move or not self.is_valid_move:
+            if not move or not self.is_valid_move(self.current_game_state, move):
                 self.warnings[player] += 1
                 print(f"Invalid move! Warning: {player} has 1 warning. Next invalid move will result in a loss.")
                 continue
@@ -444,8 +444,11 @@ if __name__ == "__main__":
         heuristic = heuristic_e0
     elif args.heuristic == 'e1':
         heuristic = heuristic_e1
+    elif args.heuristic == 'e2':
+        heuristic = heuristic_e2
     else:
-        print("e2 not available yet.")
+        print("Heuristic not recognized.")
+        heuristic = None
 
     game = MiniChess(args.alpha_beta, args.timeout, args.max_turns, args.play_mode, heuristic)
     game.play()  
