@@ -9,7 +9,7 @@ Args:
 Returns:
     - integer value representing the score of the game state
 """
-def heuristic_e0(self, game_state):
+def heuristic_e0(game_state):
     piece_values = {'p': 1, 'N': 3, 'B': 3, 'Q': 9, 'K': 999} # Piece values for evaluation function e0
     white_score, black_score = 0, 0
     for row in game_state["board"]:
