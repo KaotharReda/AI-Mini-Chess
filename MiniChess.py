@@ -192,6 +192,16 @@ class MiniChess:
         ((start_row, start_col), (end_row, end_col)) = move
         piece = game_state["board"][start_row][start_col]
         game_state["board"][start_row][start_col] = '.'
+
+        # Promotion logic
+        if piece[1] == 'p':
+            # For white: promotion when reaching top (index 0)
+            if piece[0] == 'w' and end_row == 0:
+                piece = 'wQ'
+            # For black: promotion when reaching bottom (index 4)
+            elif piece[0] == 'b' and end_row == 4:
+                piece = 'bQ'
+
         game_state["board"][end_row][end_col] = piece
         game_state["turn"] = "black" if game_state["turn"] == "white" else "white"
         game_state["move_count"] += 1
