@@ -1,0 +1,192 @@
+Timeout: 1.0 seconds
+Max turns: 50
+Play mode: H-AI
+Alpha-beta: True
+Heuristic: heuristic_e1
+
+Initial board configuration:
+5   bK  bQ  bB  bN   .
+4    .   .  bp  bp   .
+3    .   .   .   .   .
+2    .  wp  wp   .   .
+1    .  wN  wB  wQ  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 1
+Action: move from C2 to C3
+
+New board configuration:
+5   bK  bQ  bB  bN   .
+4    .   .  bp  bp   .
+3    .   .  wp   .   .
+2    .  wp   .   .   .
+1    .  wN  wB  wQ  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 1
+Action: move from A5 to A4
+Search Score: 360
+Board Heuristic Score: 40
+Time taken: 1.00 seconds
+Cummulative States Explored: 94128
+Cumulative States Explored by Depth: 1=1 2=1 3=7 4=42 5=272 6=1614 7=12480 8=79710 
+Cumulative States Explored by Depth (%): 1=0.0% 2=0.0% 3=0.0% 4=0.0% 5=0.3% 6=1.7% 7=13.3% 8=84.7% 
+Branching Factor: 6.5
+
+New board configuration:
+5    .  bQ  bB  bN   .
+4   bK   .  bp  bp   .
+3    .   .  wp   .   .
+2    .  wp   .   .   .
+1    .  wN  wB  wQ  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 2
+Action: move from C3 to D4
+
+New board configuration:
+5    .  bQ  bB  bN   .
+4   bK   .  bp  wp   .
+3    .   .   .   .   .
+2    .  wp   .   .   .
+1    .  wN  wB  wQ  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 2
+Action: move from B5 to B4
+Search Score: 1875
+Board Heuristic Score: 155
+Time taken: 1.00 seconds
+Cummulative States Explored: 194415
+Cumulative States Explored by Depth: 1=2 2=2 3=8 4=51 5=371 6=2764 7=20435 8=170780 
+Cumulative States Explored by Depth (%): 1=0.0% 2=0.0% 3=0.0% 4=0.0% 5=0.2% 6=1.4% 7=10.5% 8=87.8% 
+Branching Factor: 8.2
+
+New board configuration:
+5    .   .  bB  bN   .
+4   bK  bQ  bp  wp   .
+3    .   .   .   .   .
+2    .  wp   .   .   .
+1    .  wN  wB  wQ  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 3
+Action: move from D4 to C5
+
+New board configuration:
+5    .   .  wQ  bN   .
+4   bK  bQ  bp   .   .
+3    .   .   .   .   .
+2    .  wp   .   .   .
+1    .  wN  wB  wQ  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 3
+Action: move from D5 to C3
+Search Score: 1760
+Board Heuristic Score: 1180
+Time taken: 1.00 seconds
+Cummulative States Explored: 296533
+Cumulative States Explored by Depth: 1=3 2=3 3=9 4=68 5=468 6=4247 7=28484 8=263248 
+Cumulative States Explored by Depth (%): 1=0.0% 2=0.0% 3=0.0% 4=0.0% 5=0.2% 6=1.4% 7=9.6% 8=88.8% 
+Branching Factor: 8.9
+
+New board configuration:
+5    .   .  wQ   .   .
+4   bK  bQ  bp   .   .
+3    .   .  bN   .   .
+2    .  wp   .   .   .
+1    .  wN  wB  wQ  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 4
+Action: move from C5 to B4
+
+New board configuration:
+5    .   .   .   .   .
+4   bK  wQ  bp   .   .
+3    .   .  bN   .   .
+2    .  wp   .   .   .
+1    .  wN  wB  wQ  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 4
+Action: move from A4 to A5
+Search Score: 22050
+Board Heuristic Score: 2085
+Time taken: 1.00 seconds
+Cummulative States Explored: 399572
+Cumulative States Explored by Depth: 1=4 2=5 3=22 4=150 5=781 6=7001 7=36860 8=354745 
+Cumulative States Explored by Depth (%): 1=0.0% 2=0.0% 3=0.0% 4=0.0% 5=0.2% 6=1.8% 7=9.2% 8=88.8% 
+Branching Factor: 8.9
+
+New board configuration:
+5   bK   .   .   .   .
+4    .  wQ  bp   .   .
+3    .   .  bN   .   .
+2    .  wp   .   .   .
+1    .  wN  wB  wQ  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 5
+Action: move from B4 to A5
+
+New board configuration:
+5   wQ   .   .   .   .
+4    .   .  bp   .   .
+3    .   .  bN   .   .
+2    .  wp   .   .   .
+1    .  wN  wB  wQ  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 5
+Action: move from C3 to B5
+Search Score: 23150
+Board Heuristic Score: 22040
+Time taken: 1.00 seconds
+Cummulative States Explored: 504623
+Cumulative States Explored by Depth: 1=5 2=8 3=28 4=241 5=973 6=10227 7=42017 8=451119 
+Cumulative States Explored by Depth (%): 1=0.0% 2=0.0% 3=0.0% 4=0.0% 5=0.2% 6=2.0% 7=8.3% 8=89.4% 
+Branching Factor: 9.4
+
+New board configuration:
+5   wQ  bN   .   .   .
+4    .   .  bp   .   .
+3    .   .   .   .   .
+2    .  wp   .   .   .
+1    .  wN  wB  wQ  wK
+
+     A   B   C   D   E
+
+
+White won in 5 turns

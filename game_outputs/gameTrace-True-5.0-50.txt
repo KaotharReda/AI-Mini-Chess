@@ -1,0 +1,208 @@
+Timeout: 5.0 seconds
+Max turns: 50
+Play mode: AI-AI
+Alpha-beta: True
+
+Initial board configuration:
+5   bK  bQ  bB  bN   .
+4    .   .  bp  bp   .
+3    .   .   .   .   .
+2    .  wp  wp   .   .
+1    .  wN  wB  wQ  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 1
+Action: move from D1 to D4
+Best Score: 1
+Time taken: 5.01 seconds
+
+New board configuration:
+5   bK  bQ  bB  bN   .
+4    .   .  bp  wQ   .
+3    .   .   .   .   .
+2    .  wp  wp   .   .
+1    .  wN  wB   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 1
+Action: move from C5 to D4
+Best Score: -8
+Time taken: 5.02 seconds
+
+New board configuration:
+5   bK  bQ   .  bN   .
+4    .   .  bp  bB   .
+3    .   .   .   .   .
+2    .  wp  wp   .   .
+1    .  wN  wB   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 2
+Action: move from C2 to C3
+Best Score: -8
+Time taken: 5.01 seconds
+
+New board configuration:
+5   bK  bQ   .  bN   .
+4    .   .  bp  bB   .
+3    .   .  wp   .   .
+2    .  wp   .   .   .
+1    .  wN  wB   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 2
+Action: move from B5 to B2
+Best Score: -9
+Time taken: 5.02 seconds
+
+New board configuration:
+5   bK   .   .  bN   .
+4    .   .  bp  bB   .
+3    .   .  wp   .   .
+2    .  bQ   .   .   .
+1    .  wN  wB   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 3
+Action: move from C1 to B2
+Best Score: 0
+Time taken: 5.00 seconds
+
+New board configuration:
+5   bK   .   .  bN   .
+4    .   .  bp  bB   .
+3    .   .  wp   .   .
+2    .  wB   .   .   .
+1    .  wN   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 3
+Action: move from D5 to C3
+Best Score: -1
+Time taken: 5.01 seconds
+
+New board configuration:
+5   bK   .   .   .   .
+4    .   .  bp  bB   .
+3    .   .  bN   .   .
+2    .  wB   .   .   .
+1    .  wN   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 4
+Action: move from B2 to C3
+Best Score: 2
+Time taken: 5.01 seconds
+
+New board configuration:
+5   bK   .   .   .   .
+4    .   .  bp  bB   .
+3    .   .  wB   .   .
+2    .   .   .   .   .
+1    .  wN   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 4
+Action: move from D4 to C3
+Best Score: -1
+Time taken: 5.01 seconds
+
+New board configuration:
+5   bK   .   .   .   .
+4    .   .  bp   .   .
+3    .   .  bB   .   .
+2    .   .   .   .   .
+1    .  wN   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 5
+Action: move from B1 to C3
+Best Score: 2
+Time taken: 5.00 seconds
+
+New board configuration:
+5   bK   .   .   .   .
+4    .   .  bp   .   .
+3    .   .  wN   .   .
+2    .   .   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 5
+Action: move from A5 to A4
+Best Score: 2
+Time taken: 5.01 seconds
+
+New board configuration:
+5    .   .   .   .   .
+4   bK   .  bp   .   .
+3    .   .  wN   .   .
+2    .   .   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: white
+Turn #: 6
+Action: move from C3 to A4
+Best Score: 1001
+Time taken: 5.01 seconds
+
+New board configuration:
+5    .   .   .   .   .
+4   wN   .  bp   .   .
+3    .   .   .   .   .
+2    .   .   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+Player: black
+Turn #: 6
+Action: move from C4 to C3
+Best Score: 1002
+Time taken: 5.01 seconds
+
+New board configuration:
+5    .   .   .   .   .
+4   wN   .   .   .   .
+3    .   .  bp   .   .
+2    .   .   .   .   .
+1    .   .   .   .  wK
+
+     A   B   C   D   E
+
+
+White won in 6 turns
