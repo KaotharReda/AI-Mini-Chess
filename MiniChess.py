@@ -419,7 +419,10 @@ class MiniChess:
             f.write(f"Max turns: {self.max_turns}\n")
             f.write(f"Play mode: {self.play_mode}\n")
             f.write(f"Alpha-beta: {self.alpha_beta}\n")
-            f.write(f"Heuristic: {self.heuristic.__name__}\n\n")
+            if self.heuristic is not None:
+                f.write(f"Heuristic: {self.heuristic.__name__}\n\n")
+            else:
+                f.write("Heuristic: None\n\n")
             f.write("Initial board configuration:\n")
             f.write(self.board_to_string())
 
