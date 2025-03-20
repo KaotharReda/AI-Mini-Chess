@@ -24,7 +24,7 @@ Additional features include:
 1. **Use the following command to run the game from the command line**
 
    ```bash
-python MiniChess.py --alpha-beta False --timeout 5 --max_turns 100 --play-mode H-H --heuristic e0
+   python MiniChess.py --alpha-beta False --timeout 5 --max_turns 100 --play-mode H-H --heuristic e0
 
 2. **Clone or Download the Repository**
 
