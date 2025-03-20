@@ -419,7 +419,10 @@ class MiniChess:
             f.write(f"Max turns: {self.max_turns}\n")
             f.write(f"Play mode: {self.play_mode}\n")
             f.write(f"Alpha-beta: {self.alpha_beta}\n")
-            f.write(f"Heuristic: {self.heuristic.__name__}\n\n")
+            if self.play_mode == 'H-H':
+                f.write("Heuristic: None\n\n")
+            else:
+                f.write(f"Heuristic: {self.heuristic.__name__}\n\n")
             f.write("Initial board configuration:\n")
             f.write(self.board_to_string())
 
@@ -502,7 +505,7 @@ if __name__ == "__main__":
     elif args.heuristic == 'e2':
         heuristic = heuristic_e2
     elif args.heuristic == 'None':
-        heuristic = None
+        heuristic = 'None'
     else:
         print("Heuristic not recognized, using e0...")
         heuristic = heuristic_e0
